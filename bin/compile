@@ -23,6 +23,8 @@ source $BIN_DIR/utils
 
 mkdir -p $BUILD_DIR/local/sbin
 
+python -m pip install ssl
+
 if [[ ! -d "$CACHE_DIR/$PYTHON_VERSION" ]]; then
   cd $CACHE_DIR
   puts-step "Installing Python ($PYTHON_VERSION)"
@@ -41,8 +43,6 @@ export LD_LIBRARY_PATH=$CACHE_DIR/$PYTHON_VERSION/lib
 
 puts-step "Ensure pip"
 python -m ensurepip --upgrade | indent
-python -m pip install --upgrade pip3
-python -m pip3 install ssl
 
 cd $BUILD_DIR
 
