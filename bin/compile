@@ -15,7 +15,7 @@ rm -fr $CACHE_DIR
 mkdir -p $CACHE_DIR
 
 # Versions.
-PYTHON_VERSION="python-3.7.0"
+PYTHON_VERSION="python-3.6.8"
 PYTHON_STACK="cedar-14"
 NGINX_VERSION="nginx-1.7.2"
 PCRE_VERSION='pcre-8.36'
@@ -41,7 +41,8 @@ export LD_LIBRARY_PATH=$CACHE_DIR/$PYTHON_VERSION/lib
 
 puts-step "Ensure pip"
 python -m ensurepip --upgrade | indent
-python -m pip install ssl
+python -m pip install --upgrade pip3
+python -m pip3 install ssl
 
 cd $BUILD_DIR
 
